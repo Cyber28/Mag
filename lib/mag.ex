@@ -1,0 +1,2 @@
+defmodule Mag do
+end
