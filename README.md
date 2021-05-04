@@ -1,6 +1,6 @@
 # Mag
 
-Mag (Hungarian: seed) is a small API to generate [filtered seeds](https://docs.google.com/spreadsheets/d/1ilu72GJ-vJZq2LFU68rycGMeTbWPjHJnO8PGfp4QjA8) for various purposes
+Mag (hungarian: seed) is a small API to generate [filtered seeds](https://docs.google.com/spreadsheets/d/1ilu72GJ-vJZq2LFU68rycGMeTbWPjHJnO8PGfp4QjA8) for various purposes
 
 ## Example usage
 
@@ -25,9 +25,9 @@ Mag (Hungarian: seed) is a small API to generate [filtered seeds](https://docs.g
 
 ```json
 {
-  "cached": boolean, // true if it was fetched from cache, false if cache was empty and it was generated upon request
-  "seed": number, // the seed
-  "took": number // time (in milliseconds) it took to generate the seed
+  "cached": "boolean, true if it was fetched from cache, false if cache was empty and it was generated upon request",
+  "seed": "number, the seed",
+  "took": "number, time (in milliseconds) it took to generate the seed"
 }
 ```
 
@@ -37,8 +37,8 @@ Mag (Hungarian: seed) is a small API to generate [filtered seeds](https://docs.g
 - Some version of linux, as the generator executables are built for linux
 - Elixir 11+ (should work)
 
-`mix deps.get`
-`mix run`
+-`mix deps.get`
+-`mix run`
 
 ## Deployment (with Docker)
 
@@ -48,7 +48,7 @@ soon :)
 
 - You can specify a port with the `MAG_PORT` environment variable (NOT IMPLEMENTED YET LOL)
 - By default, Mag caches 10 seeds per generator. You can edit this number in the `lib/mag/cache.ex` file
-
+- It is HIGHLY recommended to only allow specified hosts to access your deployment
 
 ### Credits
 
