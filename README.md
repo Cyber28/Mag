@@ -37,6 +37,7 @@ Mag (hungarian: seed) is a small API to generate [filtered seeds](https://docs.g
 - Some version of linux, as the generator executables are built for linux
 - Elixir 11+ (should work)
 
+#### Deploying
 - `mix deps.get`
 - `mix run`
 
