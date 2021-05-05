@@ -11,7 +11,7 @@ defmodule Mag.Generator do
 
   def generate_seed() do
     # providing a relative path is probably dumb
-    port = Port.open({:spawn, "./lib/mag/generators/seed"}, [:binary])
+    port = Port.open({:spawn, "./lib/mag/generators/village-plus-plus"}, [:binary])
 
     recv_loop(port, :os.system_time(:millisecond))
   end

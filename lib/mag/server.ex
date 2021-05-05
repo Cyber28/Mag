@@ -1,5 +1,5 @@
 defmodule Mag.Server do
-  use Ace.HTTP.Service, port: 8000, cleartext: true
+  use Ace.HTTP.Service, port: Mag.get_port(), cleartext: true
   use Raxx.SimpleServer
 
   @impl Raxx.SimpleServer
