@@ -4,12 +4,7 @@ defmodule Mag.Cache do
   # Client
 
   def start_link(_) do
-    generators = File.ls!("./generators")
-    caches = Map.new(generators, fn g -> {g, []} end)
-
-    Enum.each(generators, fn g -> Task.start(fn -> Mag.Generator.run(g) end) end)
-
-    GenServer.start_link(__MODULE__, caches, name: __MODULE__)
+    GenServer.start_link(__MODULE__, [], name: __MODULE__)
   end
 
   def exists?(name) do
@@ -35,8 +30,11 @@ defmodule Mag.Cache do
   # Server
 
   @impl true
-  def init(l) do
-    {:ok, l}
+  def init(_) do
+    generators = File.ls!("./generators")
+    caches = Map.new(generators, fn g -> {g, []} end)
+    Enum.each(generators, fn g -> Task.start(fn -> Mag.Generator.run(g) end) end)
+    {:ok, caches}
   end
 
   @impl true
