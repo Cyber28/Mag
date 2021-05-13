@@ -48,7 +48,7 @@ Mag (Hungarian: seed) is a small API to generate [filtered seeds](https://docs.g
 
 ## Deployment (with Docker)
 
-soon :)
+There is a (untested) Dockerfile in the repo. Run `docker run .` to start Mag in a Docker container.
 
 ## Extra details
 
