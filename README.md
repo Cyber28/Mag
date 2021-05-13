@@ -4,20 +4,15 @@ Mag (Hungarian: seed) is a small API to generate [filtered seeds](https://docs.g
 
 ## Example usage
 
-`GET http://localhost:port/village-plus-plus`
+`GET http://localhost:port/powervillage`
 ```json
 {
-  "cached": true,
-  "seed": -4355852075190131575,
-  "took": 14972
+  "cache_size": 5,
+  "cache_status": true,
+  "seed": -4712597063144166317,
+  "took": 26509
 }
 ```
-
-## Currently supported generators
-
-| Supported Generators | Endpoints |
-| --- | --- |
-| [fsg-power-village-plusplus](https://replit.com/@AndyNovo/fsg-power-village-plusplus) | `/village-plus-plus` |
 
 ## Response types
 
@@ -25,19 +20,29 @@ Mag (Hungarian: seed) is a small API to generate [filtered seeds](https://docs.g
 
 ```json
 {
-  "cached": "boolean, true if it was fetched from cache, false if cache was empty and it was generated upon request",
+  "cache_size": "number, number of seeds in the cache",
+  "cache_status": "boolean, true if it was fetched from cache, false if cache was empty and it was generated upon request",
   "seed": "number, the seed",
   "took": "number, time (in milliseconds) it took to generate the seed"
+}
+```
+
+`/cache`
+
+```json
+{
+  "generator_name": "number, number of seeds cached for this generator"
 }
 ```
 
 ## Deployment (without Docker)
 
 **Requirements:**
-- Some version of linux, as the generator executables are built for linux
-- Elixir 11+ (should work)
+- Some version of Linux, as the generator executables are built for Linux
+- Elixir 11+ (should work, too lazy to run tests)
 
 #### Deploying
+- Drop your generator executables in /generators (they must be built for Linux)
 - `mix deps.get`
 - `mix run`
 

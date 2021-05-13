@@ -27,3 +27,4 @@ mag-*.tar
 /tmp
 
 /.elixir_ls
+/generators
