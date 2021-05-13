@@ -61,3 +61,4 @@ Mag (Hungarian: seed) is a small API to generate [filtered seeds](https://docs.g
 
 - Everyone involved in the filtered seed projects!
 - [Cyber28](https://github.com/Cyber28) for writing this junk
+- [Ravy](https://ravy.pink) for helping with Docker support
