@@ -12,4 +12,11 @@ defmodule Mag do
       {:ok, max_cache} -> String.to_integer(max_cache)
     end
   end
+
+  def get_max_generators() do
+    case System.fetch_env("MAG_MAX_GENERATORS") do
+      :error -> 1
+      {:ok, max_generators} -> String.to_integer(max_generators)
+    end
+  end
 end

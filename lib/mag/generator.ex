@@ -11,19 +11,23 @@ defmodule Mag.Generator do
 
   def generate_seed(name) do
     # providing a relative path is probably dumb
-    port = Port.open({:spawn, "./generators/#{name}"}, [:binary])
+    gens = Mag.get_max_generators()
+    ports = Enum.map(1..gens, fn _ -> Port.open({:spawn, "./generators/#{name}"}, [:binary]) end)
 
-    recv_loop(port, :os.system_time(:millisecond), name)
+    recv_loop(ports, :os.system_time(:millisecond), name)
   end
 
-  defp recv_loop(port, start_time, name) do
+  defp recv_loop(ports, start_time, name) do
     receive do
-      {^port, {:data, data}} ->
+      {_port, {:data, data}} ->
         case String.starts_with?(data, "\nSeed: ") do
           false ->
-            recv_loop(port, start_time, name)
+            recv_loop(ports, start_time, name)
 
           true ->
+            # Calling Port.info/1 to make sure the process still exists
+            Enum.each(ports, fn port -> if Port.info(port) != nil, do: Port.close(port) end)
+
             seed =
               String.split(data, "\n")
               |> Enum.at(1)
