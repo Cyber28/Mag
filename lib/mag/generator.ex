@@ -1,6 +1,6 @@
 defmodule Mag.Generator do
   def run(name) do
-    if Mag.Cache.size(name) >= 10 do
+    if Mag.Cache.size(name) >= Mag.get_max_cache() do
       Process.sleep(1_000)
       run(name)
     else

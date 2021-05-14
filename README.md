@@ -54,7 +54,7 @@ Mag (Hungarian: seed) is a small API to generate [filtered seeds](https://docs.g
 ## Extra details
 
 - You can specify a port with the `MAG_PORT` environment variable (by default it will run on 8000)
-- By default, Mag caches 10 seeds per generator. You can edit this number in the `lib/mag/cache.ex` file
+- You can specify the number of seeds to keep cached with the `MAG_MAX_CACHE` environment variable (by default it will cache 10)
 - It is HIGHLY recommended to only allow specified hosts to access your deployment
 
 ### Credits
